@@ -1,15 +1,28 @@
 class Analytics {
-    property1: string;
-    property2: number;
-  
-    constructor(property1: string, property2: number) {
-      this.property1 = property1;
-      this.property2 = property2;
+    isStartedWebApp: Boolean = false;
+    usedFunctions: Array<String> = []
+
+    useWebApp(): void {
+        if (this.isStartedWebApp === false) {
+            
+            // Google TagManager
+            // @ts-ignore
+            dataLayer.push({ event: 'use-webapp' })
+
+            this.isStartedWebApp = true
+        }
     }
-  
-    myMethod(): void {
-      console.log('This is a method from MyClass');
+
+    useFunction(functionName: String): void {
+        if (!this.usedFunctions.includes(functionName)) {
+
+            // Google TagManager
+            // @ts-ignore
+            dataLayer.push({ event: 'use-function' })
+
+            this.usedFunctions.push(functionName)
+        }
     }
   }
 
-export default new Analytics('example', 123);
+export default new Analytics();
