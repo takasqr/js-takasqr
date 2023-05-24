@@ -1,9 +1,11 @@
 {
   "name": "js-takasqr",
   "private": false,
-  "version": "0.0.7",
+  "version": "0.0.8",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
@@ -15,5 +17,8 @@
   },
   "exports": {
     "import": "./dist/js-takasqr.js"
+  },
+  "dependencies": {
+    "@types/node": "^20.2.3"
   }
 }
